@@ -1,0 +1,1 @@
+prime=int(input("Enter the prime number"))
