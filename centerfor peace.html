@@ -657,6 +657,333 @@
             margin-bottom: 0;
             font-family: 'Montserrat', serif;
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(3px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.4s ease;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light);
+        }
+
+        .modal-header h2 {
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .close-modal {
+            font-size: 28px;
+            font-weight: bold;
+            color: #999;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--accent);
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode header {
+            background: rgba(26, 26, 26, 0.9);
+        }
+
+        body.dark-mode .logo-text {
+            color: var(--light-blue);
+        }
+
+        body.dark-mode nav a {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .feature-card,
+        body.dark-mode .workshop-card,
+        body.dark-mode .pillar-item,
+        body.dark-mode .modal-content {
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .feature-card h3,
+        body.dark-mode .pillar-item h3,
+        body.dark-mode h1, h2, h3, h4 {
+            color: var(--light-blue);
+        }
+
+        body.dark-mode .feature-card p,
+        body.dark-mode .pillar-item p,
+        body.dark-mode .workshop-content p {
+            color: #b0b0b0;
+        }
+
+        /* Interactive Tab Styles */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            background-color: #f0f0f0;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark);
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background-color: var(--light);
+            border-color: var(--primary);
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* Counter Animation */
+        .counter {
+            font-size: 3.5rem;
+            color: var(--light-blue);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        /* Floating Button */
+        .floating-btn {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 998;
+            text-decoration: none;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 95, 122, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        body.dark-mode .form-group input,
+        body.dark-mode .form-group textarea,
+        body.dark-mode .form-group select {
+            background-color: #3a3a3a;
+            color: #e0e0e0;
+            border-color: #555;
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent), var(--secondary), var(--primary));
+            width: 0%;
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+
+        /* About Text Strong */
+        .about-text strong {
+            color: var(--primary);
+        }
+
+        /* Read Story Button */
+        .read-story-btn {
+            justify-content: flex-start !important;
+            border: none !important;
+            padding-left: 0 !important;
+            font-size: 1.1rem !important;
+        }
+
+        /* Copyright Heart */
+        .heart-icon {
+            color: #e76f51;
+        }
+
+        /* Modal Workshop Item */
+        .workshop-item-detail {
+            background-color: #f0f4f8;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .workshop-item-detail p {
+            margin-bottom: 8px;
+        }
+
+        .workshop-item-detail ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .workshop-item-detail ul li {
+            margin-bottom: 8px;
+        }
+
+        /* Social Links Title */
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+        }
+
+        .workshop-register-link {
+            display: inline-block;
+        }
         
         .team-member {
             display: inline-flex;
@@ -901,11 +1228,11 @@
             <h1><span>Welcome To</span>Hope, Healing <br>& Resilience</h1>
             <p>Building communities through peace literacy, intercultural dialogue, and collective well-being since 2023.</p>
             <div class="hero-buttons">
-                <a href="https://forms.google.com/your-form-link-here" target="_blank" class="cta-button">Join Our Mission</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSem9W-YBmttHDrdANxm8s-MO2HfvkfdjIGZyKssVQpcKBVcbQ/viewform?usp=publish-editor" rel="noopener" target="_blank" class="cta-button">Join Our Mission</a>
                 <a href="#workshops" class="cta-button secondary">View Workshops</a>
             </div>
         </div>
-        <a href="#why" class="scroll-down">
+        <a href="#why" class="scroll-down" title="Scroll to next section">
             <i class="fas fa-chevron-down"></i>
         </a>
     </section>
@@ -980,10 +1307,10 @@
             
             <div class="about-content">
                 <div class="about-text" data-aos="fade-right">
-                    <p>Established in 2023, the <strong style="color: var(--primary);">Centre for Peace Praxis</strong> aims at building communities of hope, healing, and resilience.</p>
+                    <p>Established in 2023, the <strong>Centre for Peace Praxis</strong> aims at building communities of hope, healing, and resilience.</p>
                     <p>We believe that peace is not just the absence of conflict, but the presence of justice, understanding, and active cooperation. To achieve this, we organize regular workshops, dialogues, and events that spread peace literacy.</p>
                     <p>Aligned with our pillars—Media Literacy, Psychosocial Support, Intercultural Dialogue, and Ecological Wellbeing—we create environments where diversity is embraced as a strength.</p>
-                    <a href="#volunteer" class="workshop-btn" style="justify-content: flex-start; border:none; padding-left:0; font-size:1.1rem;">Read Our Full Story <i class="fas fa-arrow-right"></i></a>
+                    <a href="#volunteer" class="workshop-btn read-story-btn">Read Our Full Story <i class="fas fa-arrow-right"></i></a>
                 </div>
                 
                 <div class="about-img" data-aos="fade-left">
@@ -1001,36 +1328,43 @@
                 <p>The foundation of our approach to peacebuilding.</p>
             </div>
             
+            <div class="tabs" data-aos="fade-up">
+                <button class="tab-btn active" data-tab="intercultural">Intercultural Dialogue</button>
+                <button class="tab-btn" data-tab="psychosocial">Psycho-social Well-being</button>
+                <button class="tab-btn" data-tab="media">Media Literacy</button>
+                <button class="tab-btn" data-tab="eco">Eco-consciousness</button>
+            </div>
+            
             <div class="pillar-grid">
-                <div class="pillar-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="pillar-item tab-content active" id="intercultural" data-aos="fade-up" data-aos-delay="100">
                     <div class="pillar-icon"><i class="fas fa-globe-americas"></i></div>
                     <div>
                         <h3>Intercultural Dialogue</h3>
-                        <p>Fostering understanding and respect across diverse cultures, beliefs, and backgrounds through open conversations.</p>
+                        <p>Fostering understanding and respect across diverse cultures, beliefs, and backgrounds through open conversations. We create safe spaces for meaningful dialogue that celebrates our differences and finds common ground.</p>
                     </div>
                 </div>
                 
-                <div class="pillar-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="pillar-item tab-content" id="psychosocial" data-aos="fade-up" data-aos-delay="200">
                     <div class="pillar-icon"><i class="fas fa-heart"></i></div>
                     <div>
                         <h3>Psycho-social Well-being</h3>
-                        <p>Supporting mental and emotional health through community-based approaches to healing and resilience.</p>
+                        <p>Supporting mental and emotional health through community-based approaches to healing and resilience. We provide resources and support systems to help individuals and communities process trauma and build emotional strength.</p>
                     </div>
                 </div>
                 
-                <div class="pillar-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="pillar-item tab-content" id="media" data-aos="fade-up" data-aos-delay="300">
                     <div class="pillar-icon"><i class="fas fa-newspaper"></i></div>
                     <div>
                         <h3>Media Literacy</h3>
-                        <p>Developing critical thinking skills to navigate today's complex media landscape and counter misinformation.</p>
+                        <p>Developing critical thinking skills to navigate today's complex media landscape and counter misinformation. We empower people to become discerning consumers and creators of information.</p>
                     </div>
                 </div>
                 
-                <div class="pillar-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="pillar-item tab-content" id="eco" data-aos="fade-up" data-aos-delay="400">
                     <div class="pillar-icon"><i class="fas fa-leaf"></i></div>
                     <div>
                         <h3>Eco-consciousness</h3>
-                        <p>Promoting environmental awareness and sustainable practices as integral components of peace.</p>
+                        <p>Promoting environmental awareness and sustainable practices as integral components of peace. We recognize that environmental health and social peace are interconnected and equally important.</p>
                     </div>
                 </div>
             </div>
@@ -1055,7 +1389,7 @@
                     <div class="workshop-content">
                         <h4>FOUNDATIONS OF PEACE BUILDING</h4>
                         <p>Learn the fundamental principles and practices of sustainable peacebuilding in diverse contexts.</p>
-                        <a href="#" class="workshop-btn">View Details <i class="fas fa-arrow-right"></i></a>
+                        <button class="workshop-btn modal-trigger" data-workshop="foundations">View Details <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
                 
@@ -1067,7 +1401,7 @@
                     <div class="workshop-content">
                         <h4>FORGIVENESS ACROSS FAITHS</h4>
                         <p>Exploring reconciliation and forgiveness through interfaith dialogue and deep understanding.</p>
-                        <a href="#" class="workshop-btn">View Details <i class="fas fa-arrow-right"></i></a>
+                        <button class="workshop-btn modal-trigger" data-workshop="forgiveness">View Details <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
                 
@@ -1079,7 +1413,7 @@
                     <div class="workshop-content">
                         <h4>CONFLICT RESOLUTION SKILLS</h4>
                         <p>Practical skills for mediating conflicts and fostering understanding in challenging daily situations.</p>
-                        <a href="#" class="workshop-btn">View Details <i class="fas fa-arrow-right"></i></a>
+                        <button class="workshop-btn modal-trigger" data-workshop="conflict">View Details <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
                 
@@ -1092,7 +1426,7 @@
                     <div class="workshop-content">
                         <h4>TRUTH SEEKERS</h4>
                         <p>Developing critical thinking and discernment skills to navigate complex information environments.</p>
-                        <a href="#" class="workshop-btn">View Details <i class="fas fa-arrow-right"></i></a>
+                        <button class="workshop-btn modal-trigger" data-workshop="truth">View Details <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
                 
@@ -1104,7 +1438,7 @@
                     <div class="workshop-content">
                         <h4>HUMAN-WILDLIFE CONFLICT</h4>
                         <p>Addressing ecological challenges through dialogue and sustainable community solutions.</p>
-                        <a href="#" class="workshop-btn">View Details <i class="fas fa-arrow-right"></i></a>
+                        <button class="workshop-btn modal-trigger" data-workshop="wildlife">View Details <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
                 
@@ -1116,7 +1450,7 @@
                     <div class="workshop-content">
                         <h4>CAPACITY BUILDING</h4>
                         <p>Strengthening organizational and community capabilities for sustainable peace initiatives.</p>
-                        <a href="#" class="workshop-btn">View Details <i class="fas fa-arrow-right"></i></a>
+                        <button class="workshop-btn modal-trigger" data-workshop="capacity">View Details <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -1144,10 +1478,34 @@
                     </div>
                 </div>
                 
-                <a href="https://forms.google.com/your-form-link-here" target="_blank" class="cta-button">Become a Volunteer</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSem9W-YBmttHDrdANxm8s-MO2HfvkfdjIGZyKssVQpcKBVcbQ/viewform?usp=publish-editor" rel="noopener" target="_blank" class="cta-button">Become a Volunteer</a>
             </div>
         </div>
     </section>
+
+    <!-- Workshop Modals -->
+    <div id="workshopModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Workshop Details</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Floating Action Button -->
+    <a href="#workshops" class="floating-btn" title="View Workshops">
+        <i class="fas fa-book"></i>
+    </a>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
 
     <!-- Footer -->
     <footer id="contact">
@@ -1157,10 +1515,10 @@
                     <div class="logo-text">Centre for <span>Peace Praxis</span></div>
                     <p>Building communities of hope, healing, and resilience through peace literacy and intercultural dialogue.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" title="Visit our Facebook page"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Visit our Twitter profile"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Visit our Instagram profile"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="Visit our LinkedIn profile"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 
@@ -1178,9 +1536,9 @@
                 <div class="footer-column">
                     <h3>Contact Info</h3>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> CHRIST University</li>
+                        <li><i class="fas fa-map-marker-alt"></i><a href="https://www.christuniversity.in/"> CHRIST University</a></li>
                         <li><i class="fas fa-phone"></i> +1 (234) 567-8900</li>
-                        <li><i class="fas fa-envelope"></i><a> info@peacepraxis.org</li>
+                        <li><i class="fas fa-envelope"></i><a href="mailto:info@peacepraxis.org"> info@peacepraxis.org</a></li>
                     </ul>
                 </div>
                 
@@ -1196,7 +1554,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Centre for Peace Praxis. All rights reserved. | <i class="fas fa-heart" style="color: #e76f51;"></i> for peacebuilding</p>
+                <p>&copy; 2023 Centre for Peace Praxis. All rights reserved. | <i class="fas fa-heart heart-icon"></i> for peacebuilding</p>
             </div>
         </div>
     </footer>
@@ -1205,6 +1563,118 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
+        // Workshop Details Data
+        const workshopDetails = {
+            foundations: {
+                title: 'Foundations of Peace Building',
+                description: 'Learn the fundamental principles and practices of sustainable peacebuilding in diverse contexts.',
+                duration: '4 weeks | 2 hours/week',
+                level: 'Beginner',
+                participants: '15-20 people',
+                content: `
+                    <p><strong>What You'll Learn:</strong></p>
+                    <ul>
+                        <li>Core principles of peace and conflict</li>
+                        <li>Historical perspectives on peacebuilding</li>
+                        <li>Community engagement strategies</li>
+                        <li>Practical tools for conflict transformation</li>
+                    </ul>
+                    <p><strong>Who Should Join:</strong> Students, educators, community workers, and anyone passionate about peace.</p>
+                    <p style="margin-top: 20px;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSem9W-YBmttHDrdANxm8s-MO2HfvkfdjIGZyKssVQpcKBVcbQ/viewform?usp=publish-editor" rel="noopener" target="_blank" class="cta-button workshop-register-link">Register Now</a></p>
+                `
+            },
+            forgiveness: {
+                title: 'Forgiveness Across Faiths',
+                description: 'Exploring reconciliation and forgiveness through interfaith dialogue and deep understanding.',
+                duration: '3 weeks | 2.5 hours/week',
+                level: 'Intermediate',
+                participants: '10-15 people',
+                content: `
+                    <p><strong>What You'll Learn:</strong></p>
+                    <ul>
+                        <li>Faith perspectives on forgiveness</li>
+                        <li>Reconciliation frameworks</li>
+                        <li>Interfaith dialogue techniques</li>
+                        <li>Healing from historical wounds</li>
+                    </ul>
+                    <p><strong>Who Should Join:</strong> Religious leaders, interfaith activists, and those interested in reconciliation.</p>
+                    <p style="margin-top: 20px;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSem9W-YBmttHDrdANxm8s-MO2HfvkfdjIGZyKssVQpcKBVcbQ/viewform?usp=publish-editor" rel="noopener" target="_blank" class="cta-button workshop-register-link">Register Now</a></p>
+                `
+            },
+            conflict: {
+                title: 'Conflict Resolution Skills',
+                description: 'Practical skills for mediating conflicts and fostering understanding in challenging situations.',
+                duration: '5 weeks | 2 hours/week',
+                level: 'All Levels',
+                participants: '20-25 people',
+                content: `
+                    <p><strong>What You'll Learn:</strong></p>
+                    <ul>
+                        <li>Conflict analysis and mapping</li>
+                        <li>Active listening techniques</li>
+                        <li>Negotiation strategies</li>
+                        <li>Mediation and facilitation skills</li>
+                    </ul>
+                    <p><strong>Who Should Join:</strong> HR professionals, teachers, counselors, and community leaders.</p>
+                    <p style="margin-top: 20px;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSem9W-YBmttHDrdANxm8s-MO2HfvkfdjIGZyKssVQpcKBVcbQ/viewform?usp=publish-editor" rel="noopener" target="_blank" class="cta-button workshop-register-link">Register Now</a></p>
+                `
+            },
+            truth: {
+                title: 'Truth Seekers',
+                description: 'Developing critical thinking and discernment skills to navigate complex information.',
+                duration: '4 weeks | 1.5 hours/week',
+                level: 'Beginner',
+                participants: '25-30 people',
+                content: `
+                    <p><strong>What You'll Learn:</strong></p>
+                    <ul>
+                        <li>Media literacy fundamentals</li>
+                        <li>Identifying misinformation</li>
+                        <li>Digital literacy and online safety</li>
+                        <li>Fact-checking methodologies</li>
+                    </ul>
+                    <p><strong>Who Should Join:</strong> Students, journalists, educators, and concerned citizens.</p>
+                    <p style="margin-top: 20px;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSem9W-YBmttHDrdANxm8s-MO2HfvkfdjIGZyKssVQpcKBVcbQ/viewform?usp=publish-editor" rel="noopener" target="_blank" class="cta-button workshop-register-link">Register Now</a></p>
+                `
+            },
+            wildlife: {
+                title: 'Human-Wildlife Conflict',
+                description: 'Addressing ecological challenges through dialogue and sustainable solutions.',
+                duration: '6 weeks | 2 hours/week',
+                level: 'Intermediate',
+                participants: '15-20 people',
+                content: `
+                    <p><strong>What You'll Learn:</strong></p>
+                    <ul>
+                        <li>Ecology and biodiversity conservation</li>
+                        <li>Community-based approaches</li>
+                        <li>Sustainable livelihoods</li>
+                        <li>Policy advocacy for wildlife protection</li>
+                    </ul>
+                    <p><strong>Who Should Join:</strong> Environmental advocates, wildlife professionals, and rural communities.</p>
+                    <p style="margin-top: 20px;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSem9W-YBmttHDrdANxm8s-MO2HfvkfdjIGZyKssVQpcKBVcbQ/viewform?usp=publish-editor" rel="noopener" target="_blank" class="cta-button workshop-register-link">Register Now</a></p>
+                `
+            },
+            capacity: {
+                title: 'Capacity Building',
+                description: 'Strengthening organizational capabilities for sustainable peace initiatives.',
+                duration: '8 weeks | 2 hours/week',
+                level: 'Advanced',
+                participants: '10-15 people',
+                content: `
+                    <p><strong>What You'll Learn:</strong></p>
+                    <ul style="margin-left: 20px; margin-bottom: 15px;">
+                        <li>Organizational development</li>
+                        <li>Project management for NGOs</li>
+                        <li>Resource mobilization</li>
+                        <li>Impact measurement and evaluation</li>
+                    </ul>
+                    <p><strong>Who Should Join:</strong> NGO leaders, social entrepreneurs, and organizational managers.</p>
+                    <p style="margin-top: 20px;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSem9W-YBmttHDrdANxm8s-MO2HfvkfdjIGZyKssVQpcKBVcbQ/viewform?usp=publish-editor" target="_blank" class="cta-button" style="display: inline-block;">Register Now</a></p>
+                `
+            }
+        };
+
         // Initialize AOS
         AOS.init({
             once: true,
@@ -1212,6 +1682,133 @@
             duration: 800,
             easing: 'ease-out-cubic',
         });
+
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        });
+
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (scrollTop / docHeight) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + '%';
+        });
+
+        // Workshop Modal Functionality
+        const modal = document.getElementById('workshopModal');
+        const closeBtn = document.querySelector('.close-modal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+
+        document.querySelectorAll('.modal-trigger').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const workshopKey = btn.getAttribute('data-workshop');
+                const workshop = workshopDetails[workshopKey];
+                
+                if (workshop) {
+                    modalTitle.textContent = workshop.title;
+                    modalBody.innerHTML = `
+                        <p style="font-size: 1.1rem; margin-bottom: 20px;">${workshop.description}</p>
+                        <div style="background-color: #f0f4f8; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                            <p><strong>Duration:</strong> ${workshop.duration}</p>
+                            <p><strong>Level:</strong> ${workshop.level}</p>
+                            <p><strong>Group Size:</strong> ${workshop.participants}</p>
+                        </div>
+                        ${workshop.content}
+                    `;
+                    modal.classList.add('show');
+                }
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+            }
+        });
+
+        // Tab Functionality for Pillars
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabName = btn.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and content
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.pillar-grid .tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                const tabContent = document.getElementById(tabName);
+                if (tabContent) {
+                    tabContent.classList.add('active');
+                }
+            });
+        });
+
+        // Counter Animation
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200;
+
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText.replace(/\D/g, '');
+
+                    const increment = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment) + '+';
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target + '+';
+                    }
+                };
+
+                updateCount();
+            });
+        };
+
+        // Intersection Observer for Counter Animation
+        const counterSection = document.querySelector('.stats-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add data-target attributes to stat items
+                    document.querySelectorAll('.stat-item h3').forEach(h3 => {
+                        const text = h3.innerText;
+                        const number = parseInt(text.match(/\d+/)[0]);
+                        const counter = document.createElement('span');
+                        counter.className = 'counter';
+                        counter.setAttribute('data-target', number);
+                        counter.innerText = '0+';
+                        h3.innerHTML = '';
+                        h3.appendChild(counter);
+                    });
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (counterSection) observer.observe(counterSection);
 
         // Mobile menu functionality
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -1289,8 +1886,13 @@
                 }
             });
         });
+
+        // Add keyboard support for modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('show')) {
+                modal.classList.remove('show');
+            }
+        });
     </script>
 </body>
-
 </html>
-hi surya
